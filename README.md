@@ -20,11 +20,3 @@ changes should be implemented as a patch to the original code, and
 the files needed for the patch should be checked into this git
 repository.
 
-## Dockerfile
-
-## Naming
-
-Examples:
-- KittiSeg becomes kitti-seg.
-- frustum-pointnet becomes f-pointnet.
-
