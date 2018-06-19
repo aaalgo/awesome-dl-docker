@@ -1,6 +1,6 @@
 from tensorflow/tensorflow:1.4.1-gpu-py3
 RUN pip3 install opencv-python shapely numba easydict cython
-RUN apt-get update && apt-get install -y git vim libboost-all-dev
+RUN apt-get update && apt-get install -y git vim libboost-all-dev libsm6 libxext6 libxrender-dev
 # checkout from non-official repo for the compiling fix
 # need to switch to official repo when the fix is merged
 RUN cd / && rm -rf voxelnet \
