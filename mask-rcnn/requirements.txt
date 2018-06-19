@@ -1,0 +1,15 @@
+matplotlib 
+numpy>=1.13.0
+opencv-python 
+pandas
+scipy 
+sklearn 
+scikit-image
+keras==2.1.6
+imageio
+Pillow 
+cython
+h5py
+imgaug
+Ipython[all]
+setuptools
