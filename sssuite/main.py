@@ -432,7 +432,7 @@ if args.mode == "train":
     ax1.set_ylabel("Avg. val. accuracy")
 
 
-    plt.savefig('accuracy_vs_epochs.png')
+    plt.savefig('checkpoints/accuracy_vs_epochs.png')
 
     plt.clf()
 
@@ -444,7 +444,7 @@ if args.mode == "train":
     ax1.set_xlabel("Epoch")
     ax1.set_ylabel("Current loss")
 
-    plt.savefig('loss_vs_epochs.png')
+    plt.savefig('checkpoints/loss_vs_epochs.png')
 
 elif args.mode == "test":
     print("\n***** Begin testing *****")
