@@ -1,2 +1,2 @@
-#!/bin/bash 
-for file in ./Pred/*.png; do python ./main.py --mode predict --dataset GMC --model PSPNet-Res50 --image $file; done 
+#!/bin/bash  
+for file in ../input/*.png; do python ./main.py --mode predict --model FC-DenseNet56 --image $file; done 
