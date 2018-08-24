@@ -1,22 +1,22 @@
 WORKDIR:   /darknet includes /dataset/trainval: /train contains the training data
 			    while /val contains the validation data
+			    You may need to make this directory by yourself
  
 			    /results: inference results AND copies of important files from docker
+			    (You may need to make directory "predictions" in it to output detection results from inference.py)
 	
-			    /weights: includes the training results
+			    /weights: includes the training results(You may need to make this directory by yourself)
  
 		            Dockerfile: to build the docker 
 
 			    Makefile: to run the Dockerfile
 
 	   	       	    run-docker.sh: to run the docker and mount to workdir	
-
-		            my.data and my.names(also have copies in /results so that they can be found in docker when rebuild): PLEASE copy my.data to cfg/my.data, my.names to data/my.names in docker before training
-
+			    
 TRAINING INSTRUCTIONS:
 	SEE https://pjreddie.com/darknet/yolo/
 	1.download darknet53 model to help training: wget https://pjreddie.com/media/files/darknet53.conv.74
-	2.make sure my.data and my.names are in exact places as mentioned above
+	2.copy results/my.data to darknet/cfg/my.data, results/my.names to darknet/my.names in docker before training
 	3.create train.txt and val.txt in the /darknet (or copy from /results to workdir)
 	4.modify yolov3.cfg to yolov3_object.cfg (or copy from /results to workdir)
 	5.Then back to /darknet and run:
