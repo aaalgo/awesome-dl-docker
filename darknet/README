@@ -1,0 +1,42 @@
+WORKDIR:   /darknet includes /dataset/trainval: /train contains the training data
+			    while /val contains the validation data
+ 
+			    /results: inference results AND copies of important files from docker
+	
+			    /weights: includes the training results
+ 
+		            Dockerfile: to build the docker 
+
+			    Makefile: to run the Dockerfile
+
+	   	       	    run-docker.sh: to run the docker and mount to workdir	
+
+		            my.data and my.names(also have copies in /results so that they can be found in docker when rebuild): PLEASE copy my.data to cfg/my.data, my.names to data/my.names in docker before training
+
+TRAINING INSTRUCTIONS:
+	SEE https://pjreddie.com/darknet/yolo/
+	1.download darknet53 model to help training: wget https://pjreddie.com/media/files/darknet53.conv.74
+	2.make sure my.data and my.names are in exact places as mentioned above
+	3.create train.txt and val.txt in the /darknet (or copy from /results to workdir)
+	4.modify yolov3.cfg to yolov3_object.cfg (or copy from /results to workdir)
+	5.Then back to /darknet and run:
+		./darknet detector train cfg/my.data cfg/yolov3_object.cfg darknet53.conv.74 -gpus 1
+(I also modifed coco.names file because the test defaulted name file is 'coco.names' instead of my.names) 
+	6.copy results/inference.py to workdir to do prediction
+	7.If you would like to download my pretrained weights: "yolov3_object_500.weights" (too large to add it on github)for prediction, email me: zzhai@umich.edu
+
+SUGGESTED OPERATION:
+	root@71db72018b4b:/darknet# cp results/train.txt .
+	root@71db72018b4b:/darknet# cp results/val.txt .
+	root@71db72018b4b:/darknet# cp results/my.data cfg/ 
+	root@71db72018b4b:/darknet# cp results/my.names . 
+	root@71db72018b4b:/darknet# cp results/coco.names data/
+	root@71db72018b4b:/darknet# cp results/yolov3_object.cfg cfg/
+	root@71db72018b4b:/darknet# cp results/yolov3_object_500.weights weights/
+	(yolov3_object_500.weights is a checkpoint for continuing training or prediction)
+	root@71db72018b4b:/darknet# cp results/inference.py .
+	root@71db72018b4b:/darknet# wget https://pjreddie.com/media/files/darknet53.conv.74
+	Then you can start training or detection
+
+
+
