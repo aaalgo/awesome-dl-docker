@@ -51,7 +51,7 @@ if __name__ == "__main__":
 	    count += 1
 	    saving_path = folder_pred + name + "_" + str(count) + ".jpg"
 	    cv2.imwrite(saving_path, image_cv2)
-	    cv2.destroyAllWindows()        
+      
 
 
 
