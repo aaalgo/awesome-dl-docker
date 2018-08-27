@@ -5,13 +5,13 @@ WORKDIR:   /darknet includes /dataset/trainval: /train contains the training dat
 	
 			    /weights: includes the training results
  
-		        Dockerfile: to build the docker 
+		            Dockerfile: to build the docker 
 
-			   	Makefile: to run the Dockerfile
+			    Makefile: to run the Dockerfile
 
-	   	       	run-docker.sh: to run the docker and mount to workdir	
+	   	       	    run-docker.sh: to run the docker and mount to workdir	
 
-		        my.data and my.names(also have copies in /results so that they can be found in docker when rebuild): PLEASE copy my.data to cfg/my.data, my.names to data/my.names in docker before training
+		            my.data and my.names(also have copies in /results so that they can be found in docker when rebuild): PLEASE copy my.data to cfg/my.data, my.names to data/my.names in docker before training
 
 TRAINING INSTRUCTIONS:
 	SEE https://pjreddie.com/darknet/yolo/
